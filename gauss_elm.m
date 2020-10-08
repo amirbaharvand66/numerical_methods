@@ -21,8 +21,8 @@ n = size(k, 1);
 % transorming k to an upper triangle
 for ii = 1:n - 1
     for jj = 1:(n - ii - 1) % iterate over rows
-        p = -k(jj + ii, ii) / k(ii, ii); % pivot value
-        k(jj + ii, :) = p * k(ii, :) + k(jj + ii, :);
+        piv = -k(jj + ii, ii) / k(ii, ii); % pivot value
+        k(jj + ii, :) = piv * k(ii, :) + k(jj + ii, :);
     end
 end
 
