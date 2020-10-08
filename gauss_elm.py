@@ -15,6 +15,8 @@ def gauss_elm(k, p, d):
     
     output(s)
     d : column vector of solutions
+    
+    originally coded by Amir Baharvand(AB) (09-20)
     """
     
     # combining k and p
@@ -30,13 +32,13 @@ def gauss_elm(k, p, d):
             k[jj + (ii + 1), :] = piv * k[ii, :] + k[jj + (ii + 1), :]
              
     # the last coefficient solution (d[n] = p[n] / k[n, n])
-    d[0, n - 1] = k[n - 1, n] / k[n - 1, n - 1]
+    d[n - 1, 0] = k[n - 1, n] / k[n - 1, n - 1]
     
     # backward substition
     for ii in range(n - 2, -1, -1): # moving substition in rows
         a = k[ii, n] # creating an intermediate variable instead of p
         for jj in range(ii, n - 1): # p assembly
-            a = a - k[ii, jj + 1] * d[0, jj + 1]
-        d[0, ii] = a / k[ii, ii] # solving for d[n - 1]
+            a = a - k[ii, jj + 1] * d[jj + 1, 0]
+        d[ii, 0] = a / k[ii, ii] # solving for d[n - 1]
     
     return d
