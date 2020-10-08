@@ -12,6 +12,8 @@ function d = gauss_elm(k, p)
 % output(s)
 % d : column vector of solutions
 
+% originally coded by Amir Baharvand(AB) (09-20)
+
 % combining k and p
 k = [k p];
 
