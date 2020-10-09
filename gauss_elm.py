@@ -2,7 +2,7 @@ import numpy as np
 
 
 def gauss_elm(k, p, d):
-    """Gaussian elimination for solving linear system of equation
+    """Gaussian elimination (with pivoting) for solving linear system of equation
     i.e., [k]{d} = {p} where k is a square matrix and both d and p are
     column vectors. (1) The first loop k matrix is transformed to an
     upper triangle matrix and (2) in the next phase the system of
@@ -31,8 +31,8 @@ def gauss_elm(k, p, d):
             piv = -k[jj + (ii + 1), ii ] / k[ii, ii] # pivot value
             k[jj + (ii + 1), :] = piv * k[ii, :] + k[jj + (ii + 1), :]
              
-    # the last coefficient solution (d[n] = p[n] / k[n, n])
-    d[n - 1, 0] = k[n - 1, n] / k[n - 1, n - 1]
+    # solving for the last solution (d[n] = p[n] / k[n, n])
+    d[n - 1, 0] = k[n - 1, n] / k[n - 1, n - 1] 
     
     # backward substition
     for ii in range(n - 2, -1, -1): # moving substition in rows
