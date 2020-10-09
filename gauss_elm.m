@@ -1,5 +1,5 @@
 function d = gauss_elm(k, p)
-% Gaussian elimination for solving linear system of equation
+% Gaussian elimination (with pivoting) for solving linear system of equation
 % i.e., [k]{d} = {p} where k is a square matrix and both d and p are
 % column vectors. (1) The first loop k matrix is transformed to an
 % upper triangle matrix and (2) in the next phase the system of
@@ -28,9 +28,9 @@ for ii = 1:n - 1
     end
 end
 
-% the last coefficient solution (d[n] = p[n] / k[n, n])
-d = zeros(n, 1);
-d(n) = k(n, n + 1) / k(n, n);
+d = zeros(n, 1); % initializng d
+% solving for the last solution (d[n] = p[n] / k[n, n])
+d(n) = k(n, n + 1) / k(n, n); 
 
 % backward substition
 for ii = (n - 1):-1:1 % substition in rows
