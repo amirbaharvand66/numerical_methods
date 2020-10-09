@@ -29,6 +29,7 @@ for ii = 1:n - 1
 end
 
 % the last coefficient solution (d[n] = p[n] / k[n, n])
+d = zeros(n, 1);
 d(n) = k(n, n + 1) / k(n, n);
 
 % backward substition
