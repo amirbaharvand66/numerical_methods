@@ -27,7 +27,7 @@ n = size(U, 1);
 Y = zeros(n, 1);
 
 % (3.1) forward substitution
-Y(1) = p(1) / L(1); % solving for the first solution
+Y(1) = p(1) / L(1, 1); % solving for the first solution
 for ii = 2:n
     a = 0; % an intermediate variavble to hold found values for the solved
     for jj = 1:(ii - 1) % a assembly

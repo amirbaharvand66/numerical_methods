@@ -20,10 +20,10 @@ n = size(k, 1);
 % initializing U
 U = k;
 
-% (1.1) lower triangular matrix (L)
+% lower triangular matrix (L)
 L = eye(n);
 
-% (1.2) upper triangular matrix (U)
+% upper triangular matrix (U)
 for ii = 1:n - 1
     for jj = 1:(n - ii) % iterate over rows
         piv = U(jj + ii, ii) / U(ii, ii); % pivot value
